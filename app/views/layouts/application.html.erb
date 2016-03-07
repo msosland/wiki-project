@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <% if session[:user_id] == nil %>
+      <li class="pipe-separate left"><%= link_to 'Register' new_user_path %></li>
+      <li class="pipe-separate left"><%= link_to 'Login' login_path %></li>
+    <% elsif session[:user_id] != nil %>
+      <% user = User.find(session[:user_id]) %>
+      <li class="pipe-separate left"><%= link_to user.username, user_path(user) %></li>
+      <li class="pipe-separate left"><%= link_to 'Logout' logout_path %></li>
+    <% end %>
+  </ul>
+</nav>
+
+
 <%= yield %>
 
 </body>

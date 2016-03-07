@@ -1,3 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pipe-separate {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-right: 1px solid;
+}
+
+.pipe-separate:first-of-type {
+  padding-left: 0;
+}
+
+.pipe-separate:last-of-type {
+  padding-right: 0;
+  border-right: none;
+}
+
+.left {
+  float: left;
+}
+
