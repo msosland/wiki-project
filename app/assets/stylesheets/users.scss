@@ -21,3 +21,49 @@
   float: left;
 }
 
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.mar-b-1 {
+  margin-bottom: 1em;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-outline {
+  outline: none;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.wrap-float {
+  overflow: auto;
+}
+
+
+
