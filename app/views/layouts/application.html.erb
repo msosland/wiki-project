@@ -5,21 +5,52 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<nav class="clearfix mar-b-1">
-  <ul class="no-bullets no-margin no-padding right">
-    <% if session[:user_id] == nil %>
-      <li class="pipe-separate left"><%= link_to 'Register', new_user_path %></li>
-      <li class="pipe-separate left"><%= link_to 'Login', login_path %></li>
-    <% elsif session[:user_id] != nil %>
-      <% user = User.find(session[:user_id]) %>
-      <li class="pipe-separate left"><%= link_to user.username, user_path(user) %></li>
-      <li class="pipe-separate left"><%= link_to 'Logout', logout_path, method: :delete %></li>
-    <% end %>
-  </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">WikiJamz!</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">All Users</a></li>
+        <% if session[:user_id] == nil %>
+          <li><%= link_to 'Register', new_user_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        <% elsif session[:user_id] != nil %>
+          <% user = User.find(session[:user_id]) %>
+          <li><%= link_to user.username, user_path(user) %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </nav>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
 
 <%= yield %>

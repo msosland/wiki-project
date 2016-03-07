@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  load_and_authorize_resource
 
   def new
     render 'users/login'

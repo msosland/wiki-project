@@ -42,6 +42,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.2)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -175,6 +176,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   byebug
+  cancan
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails

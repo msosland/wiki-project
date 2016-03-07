@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
 
   def show
     @user = User.find(params[:id])
@@ -34,14 +35,15 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash.notice = "#{@user.name} has been destoryed."
+    flash.notice = "#{@user.name} has been destroyed."
     redirect_to users_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :image)
   end
+
 
 end
