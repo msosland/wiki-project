@@ -3,6 +3,6 @@ class Article < ActiveRecord::Base
   belongs_to :author
   has_many :photos
   has_many :edits
-  has_many
+  has_many :editors
 
 end
