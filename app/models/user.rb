@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
 
   has_attached_file :image, :styles => {:small => "75x75", :large => "300x300"}
 
-  validates_attachment :image, :content_type => {:content_type => }
+  # validates_attachment :image, :content_type => {:content_type => }
 
 end
