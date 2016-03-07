@@ -16,7 +16,7 @@
     <% elsif session[:user_id] != nil %>
       <% user = User.find(session[:user_id]) %>
       <li class="pipe-separate left"><%= link_to user.username, user_path(user) %></li>
-      <li class="pipe-separate left"><%= link_to 'Logout', logout_path %></li>
+      <li class="pipe-separate left"><%= link_to 'Logout', logout_path, method: :delete %></li>
     <% end %>
   </ul>
 </nav>
