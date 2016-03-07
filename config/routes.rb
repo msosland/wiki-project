@@ -4,12 +4,15 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :new, :create]
   end
 
-  resources :articles, only: [:delete, :show] do
+  resources :articles, only: [:delete, :show, :edit] do
     resources :edits
   end
 
   resources :users
 
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
   root 'categories#index'
 
