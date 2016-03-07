@@ -8,8 +8,13 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -32,7 +37,14 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">All Users</a></li>
-        <li><a href="#">Login/Logout/Register</a></li>
+        <% if session[:user_id] == nil %>
+          <li><%= link_to 'Register', new_user_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        <% elsif session[:user_id] != nil %>
+          <% user = User.find(session[:user_id]) %>
+          <li><%= link_to user.username, user_path(user) %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -40,10 +52,6 @@
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
 
 <%= yield %>
 
