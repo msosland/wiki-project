@@ -20,13 +20,13 @@ describe Article do
 
   end
 
-  describe "#current_version" do
-    it "returns latest version of article" do
-      expect(article1.current_version).to eq(version2)
+  describe "#current_version_content" do
+    it "returns content of latest version of article" do
+      expect(article1.current_version_content).to eq(version2.content)
     end
 
-    it "does not return earliest version of article"  do
-      expect(article1.current_version).to_not eq(version1)
+    it "does not return content of earliest version of article"  do
+      expect(article1.current_version_content).to_not eq(version1.content)
     end
   end
 

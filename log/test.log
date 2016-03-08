@@ -2466,3 +2466,507 @@
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$RczrcL54zocseDUoo2wHg.5h7BXfx.th.rUVtAjmYWDkEp8gaXJhC"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:09.567842"], ["updated_at", "2016-03-08 21:34:09.567842"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:09.581574"], ["updated_at", "2016-03-08 21:34:09.581574"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:09.594433"], ["updated_at", "2016-03-08 21:34:09.594433"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:09.607274"], ["updated_at", "2016-03-08 21:34:09.607274"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:09.610327"], ["updated_at", "2016-03-08 21:34:09.610327"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mVersion Load (0.4ms)[0m  SELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."id" DESC LIMIT 1  [["article_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$MvaWOjDvXOI0AYsoaommV.mrN3IbxtuBhsRlf0nSqGWsRbTKCS.qm"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:46.206576"], ["updated_at", "2016-03-08 21:34:46.206576"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:46.218799"], ["updated_at", "2016-03-08 21:34:46.218799"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:46.231298"], ["updated_at", "2016-03-08 21:34:46.231298"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:46.243394"], ["updated_at", "2016-03-08 21:34:46.243394"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:46.245988"], ["updated_at", "2016-03-08 21:34:46.245988"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mVersion Load (0.3ms)[0m  SELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."id" DESC LIMIT 1  [["article_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$o5s5Qqn1IKL9eTw6pvCFxO18BSVzX9R3pwBfztcsd0WeTh.u4wA1."], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:46.265617"], ["updated_at", "2016-03-08 21:34:46.265617"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:46.269135"], ["updated_at", "2016-03-08 21:34:46.269135"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:46.271094"], ["updated_at", "2016-03-08 21:34:46.271094"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:46.273410"], ["updated_at", "2016-03-08 21:34:46.273410"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:46.275351"], ["updated_at", "2016-03-08 21:34:46.275351"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mVersion Load (0.2ms)[0m  SELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."id" DESC LIMIT 1  [["article_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$v6KCv9B6vtf7MOeLlDdzJOgE7cvE7L33kG0i7UJspiDMKf.9jde7q"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.205172"], ["updated_at", "2016-03-08 21:34:56.205172"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.217233"], ["updated_at", "2016-03-08 21:34:56.217233"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.230544"], ["updated_at", "2016-03-08 21:34:56.230544"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.239580"], ["updated_at", "2016-03-08 21:34:56.239580"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.242238"], ["updated_at", "2016-03-08 21:34:56.242238"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$.EZUpo4xuLRiN4sGEPPK/.vK6fl0.V1lAaMkBtg0xjbEy4MsNlyNC"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.249442"], ["updated_at", "2016-03-08 21:34:56.249442"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.252722"], ["updated_at", "2016-03-08 21:34:56.252722"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.254673"], ["updated_at", "2016-03-08 21:34:56.254673"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.256694"], ["updated_at", "2016-03-08 21:34:56.256694"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.258450"], ["updated_at", "2016-03-08 21:34:56.258450"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$2CCNWxooQJGwGvE3XrDDUOsGq5dAQomsLyuCXY5JS.i7RiguWliQK"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.274280"], ["updated_at", "2016-03-08 21:34:56.274280"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.277772"], ["updated_at", "2016-03-08 21:34:56.277772"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.282286"], ["updated_at", "2016-03-08 21:34:56.282286"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.285294"], ["updated_at", "2016-03-08 21:34:56.285294"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.287714"], ["updated_at", "2016-03-08 21:34:56.287714"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mVersion Load (0.3ms)[0m  [1mSELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."id" DESC LIMIT 1[0m  [["article_id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$8i5EbHxrJbkxkX4aFTElWuUaz0aXXLD7DR8lKwqwcp1v.7JEEun7a"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.306502"], ["updated_at", "2016-03-08 21:34:56.306502"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.310446"], ["updated_at", "2016-03-08 21:34:56.310446"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.313056"], ["updated_at", "2016-03-08 21:34:56.313056"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.315133"], ["updated_at", "2016-03-08 21:34:56.315133"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.316849"], ["updated_at", "2016-03-08 21:34:56.316849"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mVersion Load (0.3ms)[0m  [1mSELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."id" DESC LIMIT 1[0m  [["article_id", 1]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$dG83eXztH0dXu0VRx2nMxOI/zd/baw49WsSDSIkPa6iyjer901LMu"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.325014"], ["updated_at", "2016-03-08 21:34:56.325014"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.328434"], ["updated_at", "2016-03-08 21:34:56.328434"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.330475"], ["updated_at", "2016-03-08 21:34:56.330475"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.332552"], ["updated_at", "2016-03-08 21:34:56.332552"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.334507"], ["updated_at", "2016-03-08 21:34:56.334507"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mVersion Load (0.4ms)[0m  [1mSELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."created_at" ASC LIMIT 1[0m  [["article_id", 1]]
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$G.kEHcUxO8qvgM41Hu53uuADp1i7XGJsBy0WG6qW8At3bV6hcraI."], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.347677"], ["updated_at", "2016-03-08 21:34:56.347677"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.351179"], ["updated_at", "2016-03-08 21:34:56.351179"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.353152"], ["updated_at", "2016-03-08 21:34:56.353152"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.355056"], ["updated_at", "2016-03-08 21:34:56.355056"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.357154"], ["updated_at", "2016-03-08 21:34:56.357154"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mVersion Load (0.5ms)[0m  [1mSELECT  "versions".* FROM "versions" WHERE "versions"."article_id" = $1  ORDER BY "versions"."created_at" ASC LIMIT 1[0m  [["article_id", 1]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$dbMywQ2nXZFJRiMfAz9iZODGaKjfyomwJ1F1Ivnuf4DGA1OJSFgfG"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.368511"], ["updated_at", "2016-03-08 21:34:56.368511"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.372000"], ["updated_at", "2016-03-08 21:34:56.372000"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.374428"], ["updated_at", "2016-03-08 21:34:56.374428"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.376629"], ["updated_at", "2016-03-08 21:34:56.376629"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.378466"], ["updated_at", "2016-03-08 21:34:56.378466"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$O8YDNm39yktSW1Kh/PlNROFekIkwfz6YlA2lcGvfD5dsh5Q73IQzy"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.391816"], ["updated_at", "2016-03-08 21:34:56.391816"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.395512"], ["updated_at", "2016-03-08 21:34:56.395512"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.399786"], ["updated_at", "2016-03-08 21:34:56.399786"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.403136"], ["updated_at", "2016-03-08 21:34:56.403136"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.404902"], ["updated_at", "2016-03-08 21:34:56.404902"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mVersion Load (0.2ms)[0m  [1mSELECT "versions".* FROM "versions" WHERE "versions"."article_id" = $1[0m  [["article_id", 1]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$FN.5pSekh7z4RcFGYKJlzOhuEqvUEVw0zjyC5956oU8pPrIODM3oS"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.414914"], ["updated_at", "2016-03-08 21:34:56.414914"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$oimHQHEfhGsXo/F4EChkCuCrVX.kkXbsD/03zuBY7aEwcweXN74sG"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.419975"], ["updated_at", "2016-03-08 21:34:56.419975"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$xZ2P3BP3j0juZwkpwNK9W.BGY/JmcLfgRFOzU8GKHrY84yRemSOkm"], ["id", 3], ["created_at", "2016-03-08 21:34:56.427111"], ["updated_at", "2016-03-08 21:34:56.427111"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.431624"], ["updated_at", "2016-03-08 21:34:56.431624"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.435442"], ["updated_at", "2016-03-08 21:34:56.435442"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$Fsd0hy9G0TtDiicts3wTtOkfnV79lXWSxF9C5TZ9zyvAkqzwvL6li"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.441843"], ["updated_at", "2016-03-08 21:34:56.441843"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$jxzLYIHTDRfqv5veOj2eIuuocloSl9oqiFth6ClLjX80VJvUl.Cn."], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.449764"], ["updated_at", "2016-03-08 21:34:56.449764"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$kvqGMYBm.hPmFVEzeK4dh.pGrYNPSX4da4.zK5wCy4v.6b2vu5VxK"], ["id", 3], ["created_at", "2016-03-08 21:34:56.455511"], ["updated_at", "2016-03-08 21:34:56.455511"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.458189"], ["updated_at", "2016-03-08 21:34:56.458189"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.460221"], ["updated_at", "2016-03-08 21:34:56.460221"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$Fi1DXbbPLOGe6hyd/BgDNeRV66B/zw5CqNvCKG0jIf4JE.lF8zMHO"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.467410"], ["updated_at", "2016-03-08 21:34:56.467410"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$R7udnsE4stzi4Ex5./XlBeiA.MRb33ODJFJRsBvYoZ9Pint.qdC4a"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.475261"], ["updated_at", "2016-03-08 21:34:56.475261"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$4xTSGtDmNWAoEZfHVV7xjeYYjEbJmkid3bsJ.Pzy5P2TM0fMcabPy"], ["id", 3], ["created_at", "2016-03-08 21:34:56.482441"], ["updated_at", "2016-03-08 21:34:56.482441"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.485033"], ["updated_at", "2016-03-08 21:34:56.485033"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.487037"], ["updated_at", "2016-03-08 21:34:56.487037"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$AZxn1euCJzMDWZNg0EN07u4lNTpyEHw2PFOUCOk57SMN2VgUvfSnm"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.497566"], ["updated_at", "2016-03-08 21:34:56.497566"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$ntRRbWmHmJCgis7zr5Wfr.2DvvpER9lDHOMbyICwWTNwunGRto7XG"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.502756"], ["updated_at", "2016-03-08 21:34:56.502756"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$hw7ujlkLYAlZyQtwPDIMtu3R0oqd7fcYxOXyryI6TN3hTQWKr8c3m"], ["id", 3], ["created_at", "2016-03-08 21:34:56.507881"], ["updated_at", "2016-03-08 21:34:56.507881"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.510412"], ["updated_at", "2016-03-08 21:34:56.510412"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.512519"], ["updated_at", "2016-03-08 21:34:56.512519"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$eap.SbKi8wEO/MxhfewqxuVun.I7B5IgrMSWQgK2QdPihF66mrOqu"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.519307"], ["updated_at", "2016-03-08 21:34:56.519307"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$hxtr8Zswism8gNnaJzSgNecyF2BYOCziNhAMsYS8gNS3Vtmy8Ko9i"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.526503"], ["updated_at", "2016-03-08 21:34:56.526503"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$J8KxOiYxbQtNFIqXh1zCGugP6fMojs5XH8gpP1IrZmrYgcTRIR2LW"], ["id", 3], ["created_at", "2016-03-08 21:34:56.533709"], ["updated_at", "2016-03-08 21:34:56.533709"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.536342"], ["updated_at", "2016-03-08 21:34:56.536342"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.538499"], ["updated_at", "2016-03-08 21:34:56.538499"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$Xn46ipzO2aXXDf6bmzPm/.fJoP64xhY92t0zZsykbRapnOV1jNyXu"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.548235"], ["updated_at", "2016-03-08 21:34:56.548235"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$L7WuTCtt92zSa/Rc5lLKjO1iUOwvmg9.qVXU5z5B4SWxpzQ6xPzwK"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.553763"], ["updated_at", "2016-03-08 21:34:56.553763"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$.vyGDhm.QwmmsdoIxILi8.KkU5W5zXcDBd2v61A6PoGuXQC9tCSbC"], ["id", 3], ["created_at", "2016-03-08 21:34:56.559853"], ["updated_at", "2016-03-08 21:34:56.559853"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.562449"], ["updated_at", "2016-03-08 21:34:56.562449"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.564590"], ["updated_at", "2016-03-08 21:34:56.564590"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$m6IB1v77OJSWFPiIi5IXIObR37FUKf14SHNmZ3C9YhGq3D9ROoWfK"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.571237"], ["updated_at", "2016-03-08 21:34:56.571237"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$4SlsUQiYu.X2LxwocjlMAuwWudAdWLI9eql7wAkOyOf1QBieZflr6"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.578892"], ["updated_at", "2016-03-08 21:34:56.578892"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$e6167D4676hQ96SKHrqViuJ9RLU1ssA/xkMNONaDFYar3aJNCYWBi"], ["id", 3], ["created_at", "2016-03-08 21:34:56.586127"], ["updated_at", "2016-03-08 21:34:56.586127"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.588716"], ["updated_at", "2016-03-08 21:34:56.588716"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.591467"], ["updated_at", "2016-03-08 21:34:56.591467"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$xRWqw6x/AC/pWa1y5PLi9OoIKlj1PUfpAhGZGTVpOERXYrXPrNaBO"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.600985"], ["updated_at", "2016-03-08 21:34:56.600985"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$Zrru1piGTzgFUA1ZBm5S5uSu76MKqiK9TO1UqIcsLmWgxLeStxcsK"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.606077"], ["updated_at", "2016-03-08 21:34:56.606077"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$ZL4o3XahIeUgkeKFF2TG2.QWK5T3IPPFu8WsRvkavz7B7tWsj0xyu"], ["id", 3], ["created_at", "2016-03-08 21:34:56.700531"], ["updated_at", "2016-03-08 21:34:56.700531"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.702989"], ["updated_at", "2016-03-08 21:34:56.702989"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.705041"], ["updated_at", "2016-03-08 21:34:56.705041"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$cA4TRtaYSP3GQLqSG7.ejO0Z3Srg5WlmDIYAO7MMucmqv4MqnuPhq"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.711994"], ["updated_at", "2016-03-08 21:34:56.711994"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$ZnIrLuWYf6pK3ZuOGjJyDOytPmdKMIlWG2vaYYG61zdInVd4W2c2C"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.717706"], ["updated_at", "2016-03-08 21:34:56.717706"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$znITqehkb07MTKkVIbCpFOEnDHrtqrDE2kC4p3rzGOd3okeQSWGMK"], ["id", 3], ["created_at", "2016-03-08 21:34:56.722811"], ["updated_at", "2016-03-08 21:34:56.722811"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.725263"], ["updated_at", "2016-03-08 21:34:56.725263"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.727258"], ["updated_at", "2016-03-08 21:34:56.727258"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$/RfMH2Er2ZOD8Og6ygsTR.OoxO9fllP5APe9CfMo/L5ym7BS5mxIi"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.734608"], ["updated_at", "2016-03-08 21:34:56.734608"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Boris"], ["password_digest", "$2a$04$PA9rlaViTeX.V84Gh5g9rOei.H1pSN51GCIA.zizNsTyrIkJ3riVy"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.739840"], ["updated_at", "2016-03-08 21:34:56.739840"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Felicia"], ["password_digest", "$2a$04$0TvBO/wjYGSi2d8qMp3Rru.34n6yrZ17xxBvncCc8cTA6I6O8yVVi"], ["id", 3], ["created_at", "2016-03-08 21:34:56.748866"], ["updated_at", "2016-03-08 21:34:56.748866"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.752477"], ["updated_at", "2016-03-08 21:34:56.752477"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.754472"], ["updated_at", "2016-03-08 21:34:56.754472"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."author_id" = $1[0m  [["author_id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$tirKFJWyqOOiwtjl4Fy0seUL2yaNWaCTXZMujA67Ud4EMMpaMlnYy"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.766627"], ["updated_at", "2016-03-08 21:34:56.766627"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Boris' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Boris"], ["password_digest", "$2a$04$U..JQq7pUewzFIUg2Bxaq.pRgUNqLfRwnl5Pcg09GshlOKD59RWXG"], ["status", "admin"], ["id", 2], ["created_at", "2016-03-08 21:34:56.771914"], ["updated_at", "2016-03-08 21:34:56.771914"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Felicia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Felicia"], ["password_digest", "$2a$04$pk4aXdVkWsb34NN5930kIOiq7Xxe.DErkZpJz7i0at/EN5V7nXaG."], ["id", 3], ["created_at", "2016-03-08 21:34:56.777006"], ["updated_at", "2016-03-08 21:34:56.777006"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["created_at", "2016-03-08 21:34:56.779486"], ["updated_at", "2016-03-08 21:34:56.779486"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.781469"], ["updated_at", "2016-03-08 21:34:56.781469"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" INNER JOIN "versions" ON "articles"."id" = "versions"."article_id" WHERE "versions"."editor_id" = $1  [["editor_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Bob"], ["password_digest", "$2a$04$q8s6Gb.AxweKBdinE2LgPOioR17WZkjuDt/DhShbBCE1haQ0k6aE6"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.794495"], ["updated_at", "2016-03-08 21:34:56.794495"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.800904"], ["updated_at", "2016-03-08 21:34:56.800904"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.803965"], ["updated_at", "2016-03-08 21:34:56.803965"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.806245"], ["updated_at", "2016-03-08 21:34:56.806245"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.809406"], ["updated_at", "2016-03-08 21:34:56.809406"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$a1l4aZ0GR3OaRf9Y7PERGewrTWIvLnDICE3HQOgqvckdlfsZik04K"], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.817707"], ["updated_at", "2016-03-08 21:34:56.817707"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.821248"], ["updated_at", "2016-03-08 21:34:56.821248"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.823196"], ["updated_at", "2016-03-08 21:34:56.823196"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.825197"], ["updated_at", "2016-03-08 21:34:56.825197"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.826883"], ["updated_at", "2016-03-08 21:34:56.826883"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Bob' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "password_digest", "status", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["username", "Bob"], ["password_digest", "$2a$04$xfMKkpvljSjv9QvBfSHpmeKLkJykHT8g4QD3NAagCYA5WroIgH1m."], ["status", "member"], ["id", 1], ["created_at", "2016-03-08 21:34:56.835319"], ["updated_at", "2016-03-08 21:34:56.835319"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = 'Squirrels' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Squirrels"], ["id", 1], ["created_at", "2016-03-08 21:34:56.838743"], ["updated_at", "2016-03-08 21:34:56.838743"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "featured", "author_id", "id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Squirrel Food"], ["featured", "f"], ["author_id", 1], ["id", 1], ["category_id", 1], ["created_at", "2016-03-08 21:34:56.841133"], ["updated_at", "2016-03-08 21:34:56.841133"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Squirrel food is good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.843659"], ["updated_at", "2016-03-08 21:34:56.843659"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "versions" ("content", "editor_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Squirrel food is really good"], ["editor_id", 1], ["article_id", 1], ["created_at", "2016-03-08 21:34:56.845436"], ["updated_at", "2016-03-08 21:34:56.845436"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Load (1.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
