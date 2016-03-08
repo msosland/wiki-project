@@ -6,6 +6,8 @@ class Article < ActiveRecord::Base
   has_many :editors, through: :versions
   attr_accessor :title
 
+  validates :title, presence: true
+
   def current_version_content
     self.versions.last.content.html_safe
   end
