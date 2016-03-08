@@ -7,14 +7,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  
+
   <%= csrf_meta_tags %>
 
   <!-- Bootstrap -->
-  
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    
+
 </head>
 <body>
 
@@ -55,16 +55,13 @@
 
 <div class="col-sm-3 col-md-2 sidebar navbar">
   <ul class="sidebar-nav">
-    <li>
-      Category 1
-    </li>
-    <li>
-      Category 2
-    </li>
-    <li>
-      Category 3
-    </li>
-  </ul>  
+
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category.title, category_path(category)  %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

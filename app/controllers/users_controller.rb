@@ -8,10 +8,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @user = User.new
   end
 
   def create
+    @categories = Category.all
     @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
