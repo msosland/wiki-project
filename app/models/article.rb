@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
     self.edits.order(updated_at: :desc).first
   end
 
-  def inital_version
+  def initial_version
     self.edits.order(created_at: :asc).first
   end
 
