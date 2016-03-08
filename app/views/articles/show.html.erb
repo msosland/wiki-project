@@ -1,7 +1,7 @@
-<%= @article.content.html_safe %>
+<%= @article.current_version_content %>
 
 
-<%= link_to "Edit Article", edit_article_path  %>
+<%= link_to "Edit Article", edit_article_version_path(@article, @version)  %>
 
 
 
