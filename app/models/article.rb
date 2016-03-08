@@ -2,15 +2,15 @@ class Article < ActiveRecord::Base
   belongs_to :category
   belongs_to :author, { :class_name => "User" }
   has_many :photos
-  has_many :edits
-  has_many :editors, through: :edits
+  has_many :versions
+  has_many :editors, through: :versions
 
   def current_version
-    self.edits.order(updated_at: :desc).first
+    self.versions.order(updated_at: :desc).first
   end
 
   def inital_version
-    self.edits.order(created_at: :asc).first
+    self.versions.order(created_at: :asc).first
   end
 
 
