@@ -43,8 +43,9 @@ GEM
     builder (3.2.2)
     byebug (8.2.2)
     cancan (1.6.10)
-    ckeditor_rails (4.5.3)
-      railties (>= 3.0)
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -83,6 +84,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     paperclip (4.3.5)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -179,7 +181,7 @@ DEPENDENCIES
   bcrypt
   byebug
   cancan
-  ckeditor_rails
+  ckeditor
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails

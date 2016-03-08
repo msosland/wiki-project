@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :articles, only: [:delete, :show, :edit] do
-    resources :edits
+    resources :versions
   end
 
   resources :users
