@@ -1,9 +1,21 @@
 class ArticlesController < ApplicationController
   # load_and_authorize_resource
 
+  def index
+    if params[:search]
+      articles = Article.search(params[:search])
+      if articles.length > 0
+        @articles = articles
+      else
+        @articles = nil
+      end
+    end
+  end
+
   def show
     @article = Article.find(params[:id])
     @version = @article.versions.last
+    @versions = @article.versions
   end
 
   def edit
@@ -20,8 +32,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @category = Category.find(params[:category_id])
     @article = Article.new(article_params)
     if @article.save
+      @category.articles << @article
       current_user.articles << @article
       redirect_to new_article_version_path(@article.id)
     end

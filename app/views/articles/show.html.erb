@@ -1,7 +1,22 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#article"><%= @article.title  %>  </a></li>
+  <li role="presentation"><a href="#versions">Previous Versions</a></li>
+</ul>
+
+<div class="tab-content" id="article">
 <%= @article.current_version_content %>
+</div>
+
+<% @versions.each do |version|  %>
+  <ul>
+    <li><%= version.editor.username %></li>
+  </ul>
+<% end %>
 
 
 <%= link_to "Edit Article", edit_article_version_path(@article, @version)  %>
+
+
 
 
 

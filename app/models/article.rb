@@ -27,4 +27,9 @@ class Article < ActiveRecord::Base
     self.update(featured: true)
   end
 
+  def self.search(query)
+    where("title like ?", "%#{query}%").order("created_at DESC")
+  end
+
+
 end
