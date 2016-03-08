@@ -18,11 +18,21 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    if logged_in?
+      @article = Article.find(params[:id])
+    else
+      flash[:notice] = "You are not authorized to edit this article."
+      render 'show'
+    end
   end
 
   def update
-    @edit = Article.find(params[:id]).edits.create(article_params)
+    if logged_in?
+      @edit = Article.find(params[:id]).edits.create(article_params)
+    else
+      flash[:notice] = "You are not authorized to edit this article."
+      render 'show'
+    end
   end
 
   def new
