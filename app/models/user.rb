@@ -12,5 +12,17 @@ class User < ActiveRecord::Base
 
   validates_attachment :image, :content_type => {:content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
+  def admin?
+    self.status == "admin"
+  end
+
+  def guest?
+    self.status == "guest"
+  end
+
+  def member?
+    self.status == "member"
+  end
+
 
 end
