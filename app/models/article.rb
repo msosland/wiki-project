@@ -5,4 +5,13 @@ class Article < ActiveRecord::Base
   has_many :edits
   has_many :editors, through: :edits
 
+  def current_version
+    self.edits.order(updated_at: :desc).first
+  end
+
+  def inital_version
+    self.edits.order(created_at: :asc).first
+  end
+
+
 end
