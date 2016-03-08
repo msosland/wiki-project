@@ -8,3 +8,8 @@
   <P> Could not find any articles to match your search :(</p>
 <% end %>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+

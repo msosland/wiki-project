@@ -19,26 +19,49 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    if logged_in?
+      @article = Article.find(params[:id])
+    else
+      flash[:notice] = "You must be logged in to edit an article!"
+      render 'show'
+    end
   end
 
   def update
-    @edit = Article.find(params[:id]).edits.create(article_params)
+    if logged_in?
+      @edit = Article.find(params[:id]).edits.create(article_params)
+    else
+      flash[:notice] = "You must be logged in to edit this article!"
+      render 'show'
+    end
   end
 
   def new
-    @category = Category.find(params[:category_id])
-    @article = Article.new
+    if logged_in?
+      @category = Category.find(params[:category_id])
+      @article = Article.new
+    else
+      flash[:notice] = "You must be logged in to create an article!"
+      redirect_to 'categories#index'
+    end
   end
 
 
 
   def create
-    @category = Category.find(params[:category_id])
-    @article = current_user.articles.new(article_params)
-    @category.articles << @article
-    if @article.save
-      redirect_to new_article_version_path(@article.id)
+    if logged_in?
+      @category = Category.find(params[:category_id])
+      @article = current_user.articles.new(article_params)
+      @category.articles << @article
+      if @article.save
+        redirect_to new_article_version_path(@article.id)
+      else
+        flash[:notice] = "Unable to create article"
+        redirect_to 'categories#index'
+      end
+    else
+      flash[:notice] = "You must be logged in to create an article!"
+      redirect_to 'categories#index'
     end
   end
 

@@ -1,4 +1,14 @@
-<%= form_for @article do |f| %>
-  <%= f.cktext_area :content %>
-  <%= f.submit %>
+
+<% if logged_in? %>
+  <%= form_for @article do |f| %>
+    <%= f.cktext_area :content %>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>You are not authorized to edit an article</p>
 <% end %>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+

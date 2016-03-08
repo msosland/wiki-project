@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe User do
-  let!(:user1) {User.create(username: "Bob", password: "1234", status: 'member', id: 1)}
-  let!(:user2) {User.create(username: "Boris", password: "bluejeans", status: 'admin', id: 2)}
-  let!(:user3) {User.create(username: "Felicia", password: "bye", status: 'guest', id: 3)}
-  let!(:article1) {Article.create(title: "Squirrel Food", featured: false, author_id: 1)}
-  let!(:version1) {Version.create(content: "Squirrel food is good", editor_id: 1, article_id: 1)}
+  let!(:user1) {User.create(username: "Bob", password: "1234", status: 'member')}
+  let!(:user2) {User.create(username: "Boris", password: "bluejeans", status: 'admin')}
+  let!(:user3) {User.create(username: "Felicia", password: "bye", status: 'guest')}
+  let!(:article1) {user1.articles.create(title: "Squirrel Food", featured: false)}
+  let!(:version1) {Version.create(content: "Squirrel food is good", article_id: article1.id, editor_id: user1.id)}
 
 
   describe "New user creation" do
@@ -51,7 +51,7 @@ describe User do
 
   describe "User is associated with articles" do
     it "returns the author's username associated with an article" do
-      expect(article1.author.username).to eq("Bob")
+      expect(article1.author).to eq(user1)
     end
 
     it "returns articles associated with a user" do
@@ -61,7 +61,7 @@ describe User do
 
   describe "User is associated with edited articles" do
     it "returns edited articles associated with a user" do
-      expect(user1.edited_articles).to all be_a Version
+      expect(user1.edited_articles).to all be_a Article
     end
   end
 

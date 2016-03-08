@@ -1,7 +1,17 @@
-<h2>Input the title of your new article:</h2>
+<% if logged_in? %>
+  <h2>Input the title of your new article:</h2>
 
-<div class ="article_form">
-  <%= render 'form' %>
-</div>
+  <div class ="article_form">
+    <%= render 'form' %>
+  </div>
+<% else %>
+  <p>You must be logged in to create an article</p>
+<% end %>
+
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 
 
