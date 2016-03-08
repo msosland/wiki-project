@@ -2,9 +2,13 @@ class ArticlesController < ApplicationController
   # load_and_authorize_resource
 
   def index
-    p "you are here"
     if params[:search]
-      @articles = Article.search(params[:search])
+      articles = Article.search(params[:search])
+      if articles.length > 0
+        @articles = articles
+      else
+        @articles = nil
+      end
     end
   end
 
