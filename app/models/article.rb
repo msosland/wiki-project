@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   has_many :photos
   has_many :versions
   has_many :editors, through: :versions
+  attr_accessor :title
 
   def current_version_content
     self.versions.last.content.html_safe
