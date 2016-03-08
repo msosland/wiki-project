@@ -1,2 +1,6 @@
+<%= form_for [@category, @article] do |f| %>
+  <%= f.text_area :content, :class => 'ckeditor' %>
+  <%= f.submit %>
+<% end %>
 
-<%= f.text_area :content, :class => 'ckeditor' %>
+
