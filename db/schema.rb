@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 20160307215824) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "edits", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.integer  "editor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "photos", force: :cascade do |t|
     t.integer  "article_id"
     t.string   "image_file_name"
@@ -63,6 +55,14 @@ ActiveRecord::Schema.define(version: 20160307215824) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "status",             default: "guest"
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "article_id"
+    t.integer  "editor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

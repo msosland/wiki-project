@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :articles, { :foreign_key => :author_id }
-  has_many :edits, { :foreign_key => :editor_id }
-  has_many :edited_articles, { :through => :edits, :source => :article }
+  has_many :versions, { :foreign_key => :editor_id }
+  has_many :edited_articles, { :through => :versions, :source => :article }
 
   validates :username, presence: true, uniqueness: true
 
