@@ -1,3 +1,13 @@
 
 
-<%= link_to 'Create Article', new_category_article_path(@category) %>
+<%= link_to 'Create Article', new_category_article_path(@category) %><br>
+
+<% if @category.has_articles %>
+  <ul>
+    <% @category.articles.each do |article| %>
+      <li><%= link_to article.title, article_path(article) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Articles created under <%= @category.title%> yet!</p>
+<% end %>
