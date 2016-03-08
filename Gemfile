@@ -29,7 +29,7 @@ gem 'paperclip', "~> 4.3"
 gem 'bcrypt'
 # gem 'ckeditor_rails'
 gem 'ckeditor'
-
+gem 'shoulda-matchers'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

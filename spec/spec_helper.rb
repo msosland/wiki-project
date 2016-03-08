@@ -14,6 +14,15 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+# require 'shoulda/matchers'
+
+# Shoulda::Matchers.configure do |config|
+#   config.integrate do |with|
+#     with.test_framework :rspec
+#     with.library :rails
+#   end
+# end
+
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
