@@ -5,11 +5,10 @@ class VersionsController < ApplicationController
   end
 
   def create
-    @version = Version.new(version_params)
     @article = Article.find(params[:article_id])
+    @version = @article.versions.new(version_params)
+    current_user.versions << @version
     if @version.save
-      @article.versions << @version
-      current_user.versions << @version
       redirect_to article_path(@article.id)
     end
   end
@@ -20,11 +19,10 @@ class VersionsController < ApplicationController
   end
 
   def update
-    @version = Version.new(version_params)
     @article = Article.find(params[:article_id])
+    @version = @article.versions.new(version_params)
+    current_user.versions << @version
     if @version.save
-      @article.versions << @version
-      current_user.versions << @version
       redirect_to article_path(@article.id)
     end
   end
