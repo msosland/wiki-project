@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @version = @article.versions.last
   end
 
   def edit

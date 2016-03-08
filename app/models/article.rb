@@ -5,8 +5,8 @@ class Article < ActiveRecord::Base
   has_many :versions
   has_many :editors, through: :versions
 
-  def current_version
-    self.versions.order(updated_at: :desc).first
+  def current_version_content
+    self.versions.last.content.html_safe
   end
 
   def initial_version
