@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
     @edit = Article.find(params[:id]).edits.create(article_params)
   end
 
-
   def new
     @categories = Category.all
     @category = Category.find(params[:category_id])

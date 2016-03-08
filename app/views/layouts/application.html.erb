@@ -39,14 +39,15 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">All Users</a></li>
-        <% if session[:user_id] == nil %>
+        <% if current_user && current_user.admin? %>
+          <li><%= link_to 'All Users', users_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to current_user.username, user_path(current_user) %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% else %>
           <li><%= link_to 'Register', new_user_path %></li>
           <li><%= link_to 'Login', login_path %></li>
-        <% elsif session[:user_id] != nil %>
-          <% user = User.find(session[:user_id]) %>
-          <li><%= link_to user.username, user_path(user) %></li>
-          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
         <% end %>
       </ul>
     </div>
@@ -56,7 +57,7 @@
 <div class="col-sm-3 col-md-2 sidebar navbar">
   <ul class="sidebar-nav">
 
-    <% @categories.each do |category| %>
+    <% categories.each do |category| %>
       <li>
         <%= link_to category.title, category_path(category)  %>
       </li>

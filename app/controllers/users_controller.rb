@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   # load_and_authorize_resource
+  def index
+    @users = User.all
+  end
 
   def show
     @user = User.find(params[:id])
@@ -23,16 +26,12 @@ class UsersController < ApplicationController
       end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update_attribute("status", "admin")
       redirect_to @user
     else
-      render 'edit'
+      redirect_to @user
     end
   end
 
