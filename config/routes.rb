@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+
   resources :categories, only: [:index, :show] do
     resources :articles, only: [:index, :new, :create]
   end
 
-  resources :articles, only: [:delete, :show, :edit] do
+  resources :articles, only: [:destroy, :show, :edit] do
     resources :versions
   end
 

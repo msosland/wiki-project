@@ -3,4 +3,8 @@ class Category < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true
 
+  def has_articles
+    self.articles.count > 0
+  end
+
 end

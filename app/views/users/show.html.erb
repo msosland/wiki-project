@@ -1,9 +1,13 @@
 <%= link_to "Back to Home", categories_path %>
 
 <h1><%= @user.username %></h1>
-<% if @user.admin? %>
-  <p>Status: Admin</p>
+<% if current_user && current_user.admin? %>
+  <p>status: <%= @user.status  %></p>
 <% end %>
+<% if current_user.admin? && @user.guest?%>
+  <%= link_to "Make admin", user_path(@user, :user => { :status => "admin"}), :method => :put %><br>
+<% end %>
+
 
 <%= image_tag @user.image.url(:large) %>
 

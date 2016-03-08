@@ -7,8 +7,8 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
 
-  def current_version
-    self.versions.order(updated_at: :desc).first
+  def current_version_content
+    self.versions.last.content.html_safe
   end
 
   def initial_version

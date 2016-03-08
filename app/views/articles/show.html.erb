@@ -1,4 +1,10 @@
-<%= @article.content.html_safe %>
+<%= @article.current_version_content %>
 
 
-<%= link_to "Edit Article", edit_article_path  %>
+<%= link_to "Edit Article", edit_article_version_path(@article, @version)  %>
+
+
+
+<% if admin %>
+  <%= link_to "Delete this article and all of its version history", @article, :method => :delete, data: {confirm: "Are you SURE? Changes cannot be undone!"}, class: "btn btn-warning" %><br>
+<% end %>
