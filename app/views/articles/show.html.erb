@@ -22,4 +22,9 @@
 
 <% if admin %>
   <%= link_to "Delete this article and all of its version history", @article, :method => :delete, data: {confirm: "Are you SURE? Changes cannot be undone!"}, class: "btn btn-warning" %><br>
+  <% if @article.featured %>
+    <%= link_to "Remove Featured Status", remove_featured_path, :method => :post %><br>
+  <% else %>
+    <%= link_to "Make Featured", make_featured_path, :method => :post %><br>
+  <% end %>
 <% end %>

@@ -19,11 +19,11 @@ class Article < ActiveRecord::Base
     Article.find_by(featured:true)
   end
 
-  def remove_featured
+  def remove_featured_status
     self.update(featured: false)
   end
 
-  def make_featured
+  def make_featured_status
     self.update(featured: true)
   end
 
