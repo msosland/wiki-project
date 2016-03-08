@@ -7,6 +7,10 @@ module ApplicationHelper
     current_user != nil
   end
 
+  def admin
+    current_user && current_user.admin?
+  end
+
   def categories
     @categories = Category.all
   end
