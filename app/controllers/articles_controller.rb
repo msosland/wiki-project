@@ -55,6 +55,21 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def remove_featured
+    article = Article.find(params[:id])
+    article.remove_featured_status
+    redirect_to article
+  end
+
+  def make_featured
+    article = Article.find(params[:id])
+    if Article.find_featured
+      featured_article = Article.find_featured
+      featured_article.remove_featured_status
+    end
+    article.make_featured_status
+    redirect_to article
+  end
 
   private
     def article_params

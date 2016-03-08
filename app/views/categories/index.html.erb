@@ -1,14 +1,19 @@
 <div id="container">
-	
-	<div class="col-md-10 pull-right">Welcome to WikiJaMS !!!
 
-	<ul>
-	  <% @categories.each do |category| %>
-	    <li>
-	      <%= link_to category.title, category_path(category)  %>
-	    </li>
-	  <% end %>
-	</ul>
+	<% if @featured_article %>
+		<div class="row">
+			Featured Article:
+		</div>
 
-	</div>
+		<div class="row">
+			<%= link_to @featured_article.title, article_path(@featured_article) %>
+		</div>
+
+		<div class="row">
+			<% if @featured_article.versions %>
+				<%= @featured_article.current_version_content %>
+			<% end %>
+		</div>
+	<% end %>
+
 </div>
