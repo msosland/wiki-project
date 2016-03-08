@@ -12,6 +12,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+
+
+
+
+
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -20,9 +27,20 @@ html {
 
 body {
   margin: 0;
+  /*background-color: black;*/
 }
 
-
+/*
+.sidebar {
+  float: left;
+  width: 10em;
+  box-sizing: border-box;
+  position: fixed;
+  border: 1px red solid;
+  height: 100%;
+  left: 0;
+}
+*/
 
 
 
@@ -79,6 +97,7 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  /*display: inline-block;*/
 }
 mark {
   background: #ff0;
@@ -204,6 +223,11 @@ td,
 th {
   padding: 0;
 }
+
+
+
+
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -256,15 +280,8 @@ th {
   }
 
 
-.sidebar {
-  float: left;
-  width: 10em;
-  box-sizing: border-box;
-  position: fixed;
-  background-color: grey;
-  height: 100%;
-  left: 0;
-}
+
+
 
 
   .navbar {
@@ -4195,7 +4212,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 65px;
-  margin-bottom: 22px;
+  /*margin-bottom: 22px;*/
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
