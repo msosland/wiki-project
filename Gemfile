@@ -30,6 +30,7 @@ gem 'bcrypt'
 # gem 'ckeditor_rails'
 gem 'ckeditor'
 gem 'shoulda-matchers'
+gem 'simplecov', :require => false, :group => :test
 # Use Unicorn as the app server
 # gem 'unicorn'
 
