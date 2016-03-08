@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
   # load_and_authorize_resource
 
+  def index
+    if params[:search]
+      @articles = Article.search(params[:search])
+    end
+  end
+
   def show
     @article = Article.find(params[:id])
   end
