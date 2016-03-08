@@ -31,15 +31,17 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+
+
   def create
     @category = Category.find(params[:category_id])
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
+    @category.articles << @article
     if @article.save
-      @category.articles << @article
-      current_user.articles << @article
       redirect_to new_article_version_path(@article.id)
     end
   end
+
 
   def destroy
     if admin
