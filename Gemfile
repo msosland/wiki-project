@@ -27,6 +27,7 @@ gem 'pg', '~> 0.15'
 gem 'paperclip', "~> 4.3"
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
+gem 'ckeditor_rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
