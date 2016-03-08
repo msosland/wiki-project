@@ -1,6 +1,26 @@
 <%= link_to "Back to Home", categories_path %>
 
 <h1><%= @user.username %></h1>
+<% if @user.admin? %>
+  <p>Status: Admin</p>
+<% end %>
+
 <%= image_tag @user.image.url(:large) %>
 
+<h3>Articles Written:</h3>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article)  %>
+    </li>
+  <% end %>
+</ul>
 
+<h3>Edited Articles:</h3>
+<ul>
+  <% @edited_articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+    </li>
+  <% end %>
+</ul>
