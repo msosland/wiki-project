@@ -9,6 +9,7 @@ class VersionsController < ApplicationController
     @article = Article.find(params[:article_id])
     if @version.save
       @article.versions << @version
+      current_user.versions << @version
       redirect_to article_path(@article.id)
     end
   end
@@ -23,6 +24,7 @@ class VersionsController < ApplicationController
     @article = Article.find(params[:article_id])
     if @version.save
       @article.versions << @version
+      current_user.versions << @version
       redirect_to article_path(@article.id)
     end
   end
