@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def update
     @edit = Article.find(params[:id]).edits.create(article_params)
+  end
 
 
 
