@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20160308221646) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.boolean  "featured"
     t.string   "status"
-    t.integer  "author_id"
-    t.integer  "category_id"
+    t.integer  "author_id",   null: false
+    t.integer  "category_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160308221646) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
+    t.string   "username",                              null: false
     t.string   "password_digest"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20160308221646) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.integer  "editor_id"
+    t.text     "content",    null: false
+    t.integer  "article_id", null: false
+    t.integer  "editor_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

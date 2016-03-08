@@ -46,13 +46,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+
   def create
     if logged_in?
       @category = Category.find(params[:category_id])
-      @article = Article.new(article_params)
+      @article = current_user.articles.new(article_params)
+      @category.articles << @article
       if @article.save
-        @category.articles << @article
-        current_user.articles << @article
         redirect_to new_article_version_path(@article.id)
       else
         flash[:notice] = "Unable to create article"
@@ -63,6 +64,7 @@ class ArticlesController < ApplicationController
       redirect_to 'categories#index'
     end
   end
+
 
   def destroy
     if admin
@@ -76,6 +78,21 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def remove_featured
+    article = Article.find(params[:id])
+    article.remove_featured_status
+    redirect_to article
+  end
+
+  def make_featured
+    article = Article.find(params[:id])
+    if Article.find_featured
+      featured_article = Article.find_featured
+      featured_article.remove_featured_status
+    end
+    article.make_featured_status
+    redirect_to article
+  end
 
   private
     def article_params

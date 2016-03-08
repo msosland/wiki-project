@@ -11,11 +11,10 @@ class VersionsController < ApplicationController
 
   def create
     if logged_in?
-      @version = Version.new(version_params)
       @article = Article.find(params[:article_id])
+      @version = @article.versions.new(version_params)
+      current_user.versions << @version
       if @version.save
-        @article.versions << @version
-        current_user.versions << @version
         redirect_to article_path(@article.id)
       else
         flash[:notice] = "Unable to create new version."
@@ -39,11 +38,10 @@ class VersionsController < ApplicationController
 
   def update
     if logged_in?
-      @version = Version.new(version_params)
       @article = Article.find(params[:article_id])
+      @version = @article.versions.new(version_params)
+      current_user.versions << @version
       if @version.save
-        @article.versions << @version
-        current_user.versions << @version
         redirect_to article_path(@article.id)
       else
         flash[:notice] = "Unable to update article"
@@ -52,6 +50,7 @@ class VersionsController < ApplicationController
     else
       flash[:notice] = "You must be logged in to update an article!"
       redirect_to @article
+
     end
   end
 
