@@ -1,6 +1,17 @@
 class ArticlesController < ApplicationController
   # load_and_authorize_resource
 
+  def index
+    if params[:search]
+      articles = Article.search(params[:search])
+      if articles.length > 0
+        @articles = articles
+      else
+        @articles = nil
+      end
+    end
+  end
+
   def show
     @article = Article.find(params[:id])
     @version = @article.versions.last
