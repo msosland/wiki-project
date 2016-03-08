@@ -1,5 +1,9 @@
 <h1>Welcome to WikiJaMS !!!</h1>
 
+<%= form_for @category do |f| %>
+<%= f.text_area :title, :class => 'ckeditor' %>
+<% end %>
+
 <ul>
   <% @categories.each do |category| %>
     <li>
