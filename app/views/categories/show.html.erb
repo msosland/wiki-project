@@ -1,6 +1,7 @@
 
-
-<%= link_to 'Create Article', new_category_article_path(@category) %><br>
+<% if logged_in? %>
+  <%= link_to 'Create Article', new_category_article_path(@category) %><br>
+<% end %>
 
 <% if @category.has_articles %>
   <ul>

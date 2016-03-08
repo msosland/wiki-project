@@ -1,6 +1,9 @@
 <div id="container">
-	
+
 	<div class="col-md-10 pull-right">Welcome to WikiJaMS !!!
+		<% if flash[:notice] %>
+  		<div class="notice"><%= flash[:notice] %></div>
+		<% end %>
 
 	<ul>
 	  <% @categories.each do |category| %>
@@ -12,3 +15,4 @@
 
 	</div>
 </div>
+

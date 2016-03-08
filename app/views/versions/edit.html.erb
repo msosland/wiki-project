@@ -1,4 +1,12 @@
-<h2>Make your changes below:</h2>
-<div class ="article_form">
-  <%= render "form" %>
-</div>
+
+<% if logged_in? %>
+  <h2>Make your changes below:</h2>
+  <div class ="article_form">
+    <%= render "form" %>
+  </div>
+<% else %>
+  <p>You must be logged in to create an article</p>
+<% end %>
+
+<%= render 'flashnotice' %>
+
