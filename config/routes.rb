@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  post 'articles/:id/remove_featured' => 'articles#remove_featured', as: 'remove_featured'
+  post 'articles/:id/make_featured' => 'articles#make_featured', as: 'make_featured'
+
   root 'categories#index'
 
 
