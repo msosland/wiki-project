@@ -1,5 +1,5 @@
 <%= form_for [@category, @article] do |f| %>
-  <%= f.text_area :content, :class => 'ckeditor' %>
+  <%= f.cktext_area :content %>
   <%= f.submit %>
 <% end %>
 
