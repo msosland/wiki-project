@@ -17,9 +17,15 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
 }
+
+
+
+
+
 article,
 aside,
 details,
@@ -50,6 +56,9 @@ audio:not([controls]) {
 template {
   display: none;
 }
+
+
+
 a {
   background-color: transparent;
 }
@@ -245,6 +254,19 @@ th {
   h3 {
     page-break-after: avoid;
   }
+
+
+.sidebar {
+  float: left;
+  width: 10em;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: grey;
+  height: 100%;
+  left: 0;
+}
+
+
   .navbar {
     display: none;
   }
