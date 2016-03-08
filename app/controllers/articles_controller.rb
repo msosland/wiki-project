@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @version = @article.versions.last
   end
 
   def edit
@@ -19,17 +20,16 @@ class ArticlesController < ApplicationController
     @edit = Article.find(params[:id]).edits.create(article_params)
   end
 
-
-
   def new
     @category = Category.find(params[:category_id])
     @article = Article.new
   end
 
   def create
-    @article = Edit.new(article_params)
+    @article = Article.new(article_params)
     if @article.save
-      redirect_to article_path(@article.id)
+      current_user.articles << @article
+      redirect_to new_article_version_path(@article.id)
     end
   end
 
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:content)
+      params.require(:article).permit(:title)
     end
 
 end
