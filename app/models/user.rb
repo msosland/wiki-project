@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :articles, { :foreign_key => :author_id }
   has_many :edits, { :foreign_key => :editor_id }
-  has_many :edited_articles, { :through => :edits, :source => :articles }
+  has_many :edited_articles, { :through => :edits, :source => :article }
 
   validates :username, presence: true, uniqueness: true
 
