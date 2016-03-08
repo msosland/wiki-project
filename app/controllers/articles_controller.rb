@@ -20,8 +20,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @category = Category.find(params[:category_id])
     @article = Article.new(article_params)
     if @article.save
+      @category.articles << @article
       current_user.articles << @article
       redirect_to new_article_version_path(@article.id)
     end
