@@ -7,6 +7,32 @@
 
 /* Toggle Styles */
 
+.article-title {
+  font-size: 150%
+}
+
+.remove-padding {
+  padding-top: 0px;
+}
+
+#categories {
+  font-size: 125%;
+}
+
+#create-article-button {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#create-article-button a {
+  color: #E0E8F5;
+}
+
+#create-article-button a:hover {
+  color: #E0E8F5;
+  text-decoration: none;
+}
+
 .col-md-offset-1 {
   margin-left: 13%;
 }
@@ -100,7 +126,7 @@
 
 .sidebar-nav li a:hover {
   text-decoration: none;
-  color: #fff;
+  color: black;
   background: rgba(255, 255, 255, 0.2);
 }
 

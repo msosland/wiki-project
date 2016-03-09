@@ -56,7 +56,7 @@
 
 
   <ul class="col-sm-3 col-md-2 sidebar-nav">
-    <li>Categories</li>
+    <li id="categories">Categories</li>
     <% categories.each do |category| %>
       <li>
         <%= link_to category.title, category_path(category), id: "#{category.title}"  %>
