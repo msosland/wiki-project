@@ -59,7 +59,7 @@
 
     <% categories.each do |category| %>
       <li>
-        <%= link_to category.title, category_path(category)  %>
+        <%= link_to category.title, category_path(category), id: "#{category.title}"  %>
       </li>
     <% end %>
   </ul>
