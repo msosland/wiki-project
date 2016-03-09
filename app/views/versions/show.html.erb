@@ -1,4 +1,4 @@
-<h4>Version <%= @version.id %> </h4>
+<h4>Version <%= @article.versions.index(@version) + 1 %> </h4>
 <p>Created on <%= @version.created_at.to_date %> By <%= @version.editor.username %></p>
 <p><%= link_to "Return to article", article_path(@article) %></p>
 
