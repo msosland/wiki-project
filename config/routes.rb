@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   post 'articles/:id/needs_sources' => 'articles#needs_sources', as: 'needs_sources'
   post 'articles/:id/remove_needs_sources' => 'articles#remove_needs_sources', as: 'remove_needs_sources'
 
-
   root 'categories#index'
 
 
