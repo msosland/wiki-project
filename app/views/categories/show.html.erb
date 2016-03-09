@@ -6,7 +6,11 @@
 <% if @category.has_articles %>
   <ul>
     <% @category.articles.each do |article| %>
-      <li><%= link_to article.title, article_path(article) %></li>
+      <% if article.status == 'published' %>
+        <li><%= link_to article.title, article_path(article) %></li>
+      <% elsif article.status == 'unpublished' && (admin || author(article)) %>
+        <li><%= link_to article.title, article_path(article) %> (Unpublished) </li>
+      <% end %>
     <% end %>
   </ul>
 <% else %>
