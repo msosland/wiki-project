@@ -8,6 +8,7 @@
 <% if @category.has_articles %>
   <table>
     <% @category.articles.each do |article| %>
+      <% if !article.versions.empty? %>
       <% if article.status == 'published' %>
         <tr>
         <% if article.first_picture %>
@@ -26,6 +27,7 @@
           <% end %>
           <td><div class="article-title"><%= link_to article.title, article_path(article) %></div> (Unpublished)<br><br>...<%= article.longest_sentence %>...</td>
         </tr>
+      <% end %>
       <% end %>
     <% end %>
   </table>
