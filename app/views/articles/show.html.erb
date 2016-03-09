@@ -10,7 +10,7 @@
 <div class="tab-content" id="versions">
   <% @versions.each do |version|  %>
     <ul>
-      <li><%= link_to "Version #{@article.versions.index(version) + 1}", article_version_path(@article, version) %> Created on <%= version.created_at.to_date %> By <%= version.editor.username %></li>
+      <li><%= link_to "Version #{@article.versions.index(version) + 1 }", article_version_path(@article, version) %> Created on <%= version.created_at.to_date %> By <%= version.editor.username %></li>
     </ul>
   <% end %>
 </div>
