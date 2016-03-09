@@ -7,18 +7,19 @@
 
 	</div>
 	<% if @featured_article %>
-		<div class="row">
-			Featured Article:
-		</div>
+		<div class="row success" id="content">
+			<div id="content-header">
+				Featured Article
+			</div>
+			<div id="content-title">
+				<%= link_to @featured_article.title, article_path(@featured_article) %>
+			</div>
 
-		<div class="row">
-			<%= link_to @featured_article.title, article_path(@featured_article) %>
-		</div>
-
-		<div class="row">
-			<% if @featured_article.versions %>
-				<%= @featured_article.current_version_content %>
-			<% end %>
+			<div >
+				<% if @featured_article.versions %>
+					<%= @featured_article.current_version_content %>
+				<% end %>
+			</div>
 		</div>
 	<% end %>
 
