@@ -4,7 +4,7 @@ class CreateVersions < ActiveRecord::Migration
       t.text :content, null: false
       t.integer :article_id, null: false
       t.integer :editor_id, null: false
-
+      t.string :status, :default => "published"
       t.timestamps null: false
     end
   end
