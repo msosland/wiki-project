@@ -1,6 +1,7 @@
 <% if @articles %>
   <table>
     <% @articles.each do |article| %>
+      <% if !article.versions.empty? %>
       <% if article.status == 'published' %>
         <tr>
         <% if article.first_picture %>
@@ -19,6 +20,7 @@
           <% end %>
           <td><%= link_to article.title, article_path(article) %> (Unpublished)<br><br>...<%= article.longest_sentence%>...</td>
         </tr>
+      <% end %>
       <% end %>
     <% end %>
   </table>
