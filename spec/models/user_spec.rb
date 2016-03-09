@@ -4,7 +4,8 @@ describe User do
   let!(:user1) {User.create(username: "Bob", password: "1234", status: 'member')}
   let!(:user2) {User.create(username: "Boris", password: "bluejeans", status: 'admin')}
   let!(:user3) {User.create(username: "Felicia", password: "bye", status: 'guest')}
-  let!(:article1) {user1.articles.create(title: "Squirrel Food", featured: false)}
+  let!(:category1) {Category.create(title: "Squirrels")}
+  let!(:article1) {user1.articles.create(title: "Squirrel Food", featured: false, category_id: category1.id, author_id: user1.id)}
   let!(:version1) {Version.create(content: "Squirrel food is good", article_id: article1.id, editor_id: user1.id)}
 
 
