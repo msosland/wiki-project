@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = User.find(params[:id])
       @articles = @user.articles
-      @edited_articles = @user.edited_articles
+      @edited_articles = @user.edited_articles.uniq
     else
       redirect_to categories_path
     end
