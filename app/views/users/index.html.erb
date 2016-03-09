@@ -1,4 +1,5 @@
-<% if admin %>
+<div class="users-index">
+  <% if admin %>
 <ul>
   <% @users.each do |user| %>
     <li>
@@ -10,3 +11,4 @@
   <%= link_to "Back to Home", categories_path %>
   <p>You are not authorized to see this page!!</p>
 <% end %>
+</div>

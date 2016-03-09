@@ -15,41 +15,45 @@
   <% end %>
 </div>
 
-
-<% if @article.needs_sources %>
-  <p>This article is marked as NEEDS SOURCES</p>
-<% end %>
-
-<% if logged_in? %>
-  <%= link_to "Edit Article", edit_article_version_path(@article, @version)  %><br>
-<% end %>
-
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<% if @article.needs_sources %>
+  This article is marked as NEEDS SOURCES--
+<% end %>
+<% if admin || author(@article) %>
+  --This article is <%= @article.status  %>
+<% end %>
+<ul class="article-options">
+<% if logged_in? %>
+  <li><%= link_to "Edit Article", edit_article_version_path(@article, @version), class: "btn btn-primary"  %></li>
+<% end %>
+
+
 
 <% if admin %>
-  <%= link_to "Delete this article and all of its version history", @article, :method => :delete, data: {confirm: "Are you SURE? Changes cannot be undone!"} %><br>
+  <li><%= link_to "Delete", @article, :method => :delete, class: "btn btn-danger", data: {confirm: "Are you SURE? Changes cannot be undone! All versions will be deleted"} %><li>
   <% if @article.featured %>
-    <%= link_to "Remove Featured Status", remove_featured_path, :method => :post %><br>
+    <li><%= link_to "Remove Featured Status", remove_featured_path, class: "btn btn-primary", :method => :post %></li>
   <% else %>
-    <%= link_to "Make Featured", make_featured_path, :method => :post %><br>
+    <li><%= link_to "Make Featured", make_featured_path, class: "btn btn-primary", :method => :post %></li>
   <% end %>
   <% if @article.needs_sources == false %>
-    <%= link_to "Mark as Needs Sources", needs_sources_path, :method => :post %>
+    <li><%= link_to "Mark as Needs Sources", needs_sources_path, class: "btn btn-primary", :method => :post %></li>
   <% else %>
-    <%= link_to "Remove Needs Sources Flag", remove_needs_sources_path, :method => :post %>
+    <li><%= link_to "Remove Needs Sources Flag", remove_needs_sources_path, class: "btn btn-primary", :method => :post %></li>
   <% end %>
 <% end %>
 
 <% if admin || author(@article) %>
   <% if @article.status == 'unpublished' %>
-    <p>This article is currently NOT PUBLISHED</p>
-    <%= link_to "Publish Your Article", publish_path, :method => :post %>
+    <!-- <p>This article is currently NOT PUBLISHED</p> -->
+    <%= link_to "Publish Your Article", publish_path, class: "btn btn-primary", :method => :post %>
   <% elsif @article.status == 'published' %>
-    <p>This article is currently PUBLISHED</p>
-    <%= link_to "Make Your Article Not Published", unpublish_path, :method => :post %>
+    <!-- <p>This article is currently PUBLISHED</p> -->
+    <li><%= link_to "Make Your Article Not Published", unpublish_path, class: "btn btn-primary", :method => :post %></li>
   <% end %>
 <% end %>
+</ul>
 
