@@ -1,13 +1,21 @@
 class UsersController < ApplicationController
   # load_and_authorize_resource
   def index
-    @users = User.all
+    if admin
+      @users = User.all
+    else
+      redirect_to categories_path
+    end
   end
 
   def show
-    @user = User.find(params[:id])
-    @articles = @user.articles
-    @edited_articles = @user.edited_articles
+    if logged_in?
+      @user = User.find(params[:id])
+      @articles = @user.articles
+      @edited_articles = @user.edited_articles.uniq
+    else
+      redirect_to categories_path
+    end
   end
 
   def new
@@ -36,10 +44,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    flash.notice = "#{@user.name} has been destroyed."
-    redirect_to users_path
+    if admin
+      @user = User.find(params[:id])
+      @user.destroy
+      flash.notice = "#{@user.name} has been destroyed."
+      redirect_to users_path
+    else
+      redirect_to categories_path
+    end
   end
 
   private
