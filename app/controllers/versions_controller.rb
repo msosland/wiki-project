@@ -1,4 +1,10 @@
 class VersionsController < ApplicationController
+
+  def show
+    @article = Article.find(params[:article_id])
+    @version = Version.find(params[:id])
+  end
+
   def new
     if logged_in?
       @article = Article.find(params[:article_id])
@@ -8,6 +14,7 @@ class VersionsController < ApplicationController
       redirect_to 'categories#index'
     end
   end
+
 
   def create
     if logged_in?

@@ -7,11 +7,14 @@
 <%= @article.current_version_content %>
 </div>
 
-<% @versions.each do |version|  %>
-  <ul>
-    <li><%= version.editor.username %></li>
-  </ul>
-<% end %>
+<div class="tab-content" id="versions">
+  <% @versions.each do |version|  %>
+    <ul>
+      <li><%= link_to "Version #{version.id}", article_version_path(@article, version) %> Created on <%= version.created_at.to_date %> By <%= version.editor.username %></li>
+    </ul>
+  <% end %>
+</div>
+
 
 
 <%= link_to "Edit Article", edit_article_version_path(@article, @version)  %>

@@ -1,1 +1,5 @@
-show.html.erb
+<h4>Version <%= @version.id %> </h4>
+<p>Created on <%= @version.created_at.to_date %> By <%= @version.editor.username %></p>
+<p><%= link_to "Return to article", article_path %></p>
+
+<%= @version.content.html_safe %>
