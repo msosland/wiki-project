@@ -27,6 +27,22 @@ class Article < ActiveRecord::Base
     self.update(featured: true)
   end
 
+  def unpublish_article
+    self.update(status: 'unpublished')
+  end
+
+  def publish_article
+    self.update(status: 'published')
+  end
+
+  def mark_as_needs_sources
+    self.update(needs_sources: true)
+  end
+
+  def remove_needs_sources
+    self.update(needs_sources: false)
+  end
+
   def self.search(query)
     where("title like ?", "%#{query}%").order("created_at DESC")
   end

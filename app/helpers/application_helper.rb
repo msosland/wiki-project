@@ -15,5 +15,8 @@ module ApplicationHelper
     @categories = Category.all
   end
 
+  def author(article)
+    current_user && current_user == article.author
+  end
 
 end

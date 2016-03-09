@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   post 'articles/:id/remove_featured' => 'articles#remove_featured', as: 'remove_featured'
   post 'articles/:id/make_featured' => 'articles#make_featured', as: 'make_featured'
 
+  post 'articles/:id/publish' => 'articles#publish', as: 'publish'
+  post 'articles/:id/unpublish' => 'articles#unpublish', as: 'unpublish'
+  post 'articles/:id/needs_sources' => 'articles#needs_sources', as: 'needs_sources'
+  post 'articles/:id/remove_needs_sources' => 'articles#remove_needs_sources', as: 'remove_needs_sources'
+
+
   root 'categories#index'
 
 

@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20160307194339) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "title",                                 null: false
     t.boolean  "featured"
-    t.integer  "author_id",   null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "status",        default: "unpublished"
+    t.boolean  "needs_sources", default: false
+    t.integer  "author_id",                             null: false
+    t.integer  "category_id",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "categories", force: :cascade do |t|

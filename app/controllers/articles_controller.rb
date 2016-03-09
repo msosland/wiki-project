@@ -94,6 +94,30 @@ class ArticlesController < ApplicationController
     redirect_to article
   end
 
+  def publish
+    article = Article.find(params[:id])
+    article.publish_article
+    redirect_to article
+  end
+
+  def unpublish
+    article = Article.find(params[:id])
+    article.unpublish_article
+    redirect_to article
+  end
+
+  def remove_needs_sources
+    article = Article.find(params[:id])
+    article.remove_needs_sources
+    redirect_to article
+  end
+
+  def needs_sources
+    article = Article.find(params[:id])
+    article.mark_as_needs_sources
+    redirect_to article
+  end
+
   private
     def article_params
       params.require(:article).permit(:title)

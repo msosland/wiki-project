@@ -6,14 +6,25 @@
 <% if @category.has_articles %>
   <table>
     <% @category.articles.each do |article| %>
-      <tr>
-      <% if article.first_picture %>
-        <td class="parent-cell"><%= article.first_picture.html_safe%></td>
-      <% else %>
-        <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
+      <% if article.status == 'published' %>
+        <tr>
+        <% if article.first_picture %>
+          <td class="parent-cell"><%= article.first_picture.html_safe%></td>
+        <% else %>
+          <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
+        <% end %>
+        <td><%= link_to article.title, article_path(article) %><br><br>...<%= article.longest_sentence%>...</td>
+        </tr>
+      <% elsif article.status == 'unpublished' && (admin || author(article)) %>
+        <tr>
+          <% if article.first_picture %>
+            <td class="parent-cell"><%= article.first_picture.html_safe%></td>
+          <% else %>
+            <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
+          <% end %>
+          <td><%= link_to article.title, article_path(article) %> (Unpublished)<br><br>...<%= article.longest_sentence%>...</td>
+        </tr>
       <% end %>
-      <td><%= link_to article.title, article_path(article) %><br><br>...<%= article.longest_sentence%>...</td>
-    </tr>
     <% end %>
   </table>
 <% else %>
