@@ -47,5 +47,13 @@ class Article < ActiveRecord::Base
     where("title like ?", "%#{query}%").order("created_at DESC")
   end
 
+  def first_picture
+    self.versions.last.content.match(/\<img.*?\/\>/).to_a[0]
+  end
+
+  def longest_sentence
+    self.versions.last.content.scan(/\w[a-z\s]+\w/).to_a.sort_by!{|word| word.length}[-1]
+  end
+
 
 end

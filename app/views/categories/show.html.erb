@@ -4,15 +4,29 @@
 <% end %>
 
 <% if @category.has_articles %>
-  <ul>
+  <table>
     <% @category.articles.each do |article| %>
       <% if article.status == 'published' %>
-        <li><%= link_to article.title, article_path(article) %></li>
+        <tr>
+        <% if article.first_picture %>
+          <td class="parent-cell"><%= article.first_picture.html_safe%></td>
+        <% else %>
+          <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
+        <% end %>
+        <td><%= link_to article.title, article_path(article) %><br><br>...<%= article.longest_sentence%>...</td>
+        </tr>
       <% elsif article.status == 'unpublished' && (admin || author(article)) %>
-        <li><%= link_to article.title, article_path(article) %> (Unpublished) </li>
+        <tr>
+          <% if article.first_picture %>
+            <td class="parent-cell"><%= article.first_picture.html_safe%></td>
+          <% else %>
+            <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
+          <% end %>
+          <td><%= link_to article.title, article_path(article) %> (Unpublished)<br><br>...<%= article.longest_sentence%>...</td>
+        </tr>
       <% end %>
     <% end %>
-  </ul>
+  </table>
 <% else %>
   <p>No Articles created under <%= @category.title%> yet!</p>
 <% end %>
