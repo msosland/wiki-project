@@ -56,12 +56,11 @@ ActiveRecord::Schema.define(version: 20160307194339) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.text     "content",                          null: false
-    t.integer  "article_id",                       null: false
-    t.integer  "editor_id",                        null: false
-    t.string   "status",     default: "published"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.text     "content",    null: false
+    t.integer  "article_id", null: false
+    t.integer  "editor_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
