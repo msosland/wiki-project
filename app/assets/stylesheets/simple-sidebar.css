@@ -11,6 +11,18 @@
   margin-left: 13%;
 }
 
+.col-md-offset-2 {
+  margin-left: 22%;
+}
+
+
+.navbar-brand {
+  float: left;
+  padding: 21.5px 15px;
+  font-size: 35px;
+  line-height: 22px;
+  height: 65px;
+}
 
 
 #wrapper {
