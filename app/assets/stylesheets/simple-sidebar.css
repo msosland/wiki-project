@@ -7,6 +7,13 @@
 
 /* Toggle Styles */
 
+
+.none-found {
+  padding-top: 20px;
+  padding-left: 10px;
+  font-size: 125%
+}
+
 .article-title {
   font-size: 150%
 }
@@ -38,7 +45,11 @@
 }
 
 .col-md-offset-2 {
-  margin-left: 22%;
+  margin-left: 15%;
+}
+
+.col-md-2 {
+  width: 15%;
 }
 
 
