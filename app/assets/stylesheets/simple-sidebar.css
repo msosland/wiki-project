@@ -59,6 +59,7 @@
 /* Sidebar Styles */
 
 .sidebar-nav {
+  font-size: 150%;
   list-style: none;
   position: fixed;
   top: 67px;
