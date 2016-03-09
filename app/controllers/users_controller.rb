@@ -34,9 +34,13 @@ class UsersController < ApplicationController
       end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = User.find(params[:id])
-    if @user.update_attribute("status", "admin")
+    if @user.update(user_params)
       redirect_to @user
     else
       redirect_to @user
@@ -54,10 +58,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def make_admin
+    if admin
+      @user = User.find(params[:id])
+      @user.update_attribute("status", "admin")
+      redirect_to @user
+    else
+      redirect_to categories_path
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :image)
+    params.require(:user).permit(:username, :password, :image, :status)
   end
 
 

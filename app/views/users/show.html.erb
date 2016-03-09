@@ -1,4 +1,8 @@
-<%= link_to "Back to Home", categories_path %>
+<%= link_to "Back to Home", categories_path %><br>
+
+<% if current_user == @user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %><br>
+<% end %>
 
 <% if logged_in? %>
   <h1><%= @user.username %></h1>
@@ -6,7 +10,7 @@
     <p>status: <%= @user.status  %></p>
   <% end %>
   <% if current_user.admin? && @user.member?%>
-    <%= link_to "Make admin", user_path(@user, :user => { :status => "admin"}), :method => :put %><br>
+    <%= link_to "Make admin", make_admin_path, :method => :post  %><br>
   <% end %>
 
 
