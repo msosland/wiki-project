@@ -1,6 +1,12 @@
-<h2>Input or edit your content below:</h2>
-<div class ="article_form">
-  <%= render "form" %>
-</div>
 
-<%= render 'flashnotice' %>
+<% if logged_in? %>
+  <h2>Input or edit your content below:</h2>
+  <div class ="article_form">
+    <%= render "form" %>
+  </div>
+
+  <%= render 'flashnotice' %>
+<% else %>
+  <%= link_to "Back to Home", categories_path %>
+  <p>You are not authorized to be here!</p>
+<% end %>

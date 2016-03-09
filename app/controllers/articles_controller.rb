@@ -79,43 +79,67 @@ class ArticlesController < ApplicationController
   end
 
   def remove_featured
-    article = Article.find(params[:id])
-    article.remove_featured_status
-    redirect_to article
+    if admin
+      article = Article.find(params[:id])
+      article.remove_featured_status
+      redirect_to article
+    else
+      redirect_to category_path
+    end
   end
 
   def make_featured
-    article = Article.find(params[:id])
-    if Article.find_featured
-      featured_article = Article.find_featured
-      featured_article.remove_featured_status
+    if admin
+      article = Article.find(params[:id])
+      if Article.find_featured
+        featured_article = Article.find_featured
+        featured_article.remove_featured_status
+      end
+      article.make_featured_status
+      redirect_to article
+    else
+      redirect_to category_path
     end
-    article.make_featured_status
-    redirect_to article
   end
 
   def publish
     article = Article.find(params[:id])
-    article.publish_article
-    redirect_to article
+    if admin || author(article)
+      article.publish_article
+      redirect_to article
+    else
+      redirect_to category_path
+    end
   end
 
   def unpublish
     article = Article.find(params[:id])
-    article.unpublish_article
-    redirect_to article
+    if admin || author(article)
+      article.unpublish_article
+      redirect_to article
+    else
+      redirect_to category_path
+    end
   end
 
   def remove_needs_sources
-    article = Article.find(params[:id])
-    article.remove_needs_sources
-    redirect_to article
+      article = Article.find(params[:id])
+    if admin || author(article)
+      article.remove_needs_sources
+      redirect_to article
+    else
+      redirect_to category_path
+    end
   end
 
   def needs_sources
     article = Article.find(params[:id])
-    article.mark_as_needs_sources
-    redirect_to article
+    if admin || author(article)
+      article.mark_as_needs_sources
+      redirect_to article
+    else
+      redirect_to category_path
+    end
   end
 
   private
