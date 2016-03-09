@@ -43,8 +43,10 @@ class Article < ActiveRecord::Base
     self.update(needs_sources: false)
   end
 
+
   def self.search(query)
-    where("title like ?", "%#{query}%").order("created_at DESC")
+    self.joins(:versions).where("LOWER(versions.content) like ?", "%#{query.downcase}%")
+
   end
 
   def first_picture
