@@ -57,5 +57,9 @@ class Article < ActiveRecord::Base
     self.versions.last.content.scan(/\w[a-z\s]+\w/).to_a.sort_by!{|word| word.length}[-1]
   end
 
+  # def content_snippet
+  #   self.versions.last.content.html_safe[0,100]
+  # end
+
 
 end

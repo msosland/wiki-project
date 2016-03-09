@@ -1,6 +1,8 @@
 
 <% if logged_in? %>
+  <div class="btn btn-primary" id="create-article-button">
   <%= link_to 'Create Article', new_category_article_path(@category) %><br>
+  </div>
 <% end %>
 
 <% if @category.has_articles %>
@@ -13,7 +15,7 @@
         <% else %>
           <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
         <% end %>
-        <td><%= link_to article.title, article_path(article) %><br><br>...<%= article.longest_sentence%>...</td>
+        <td class="remove-padding"><div class="article-title"><%= link_to article.title, article_path(article) %></div><br><br>...<%= article.longest_sentence %>...</td>
         </tr>
       <% elsif article.status == 'unpublished' && (admin || author(article)) %>
         <tr>
@@ -22,7 +24,7 @@
           <% else %>
             <td class="preview-image"><img src="http://s7d2.scene7.com/is/image/woodstream/hh-animals-squirrel-4?$ProductPgLarge2$" class="preview-image" /></td>
           <% end %>
-          <td><%= link_to article.title, article_path(article) %> (Unpublished)<br><br>...<%= article.longest_sentence%>...</td>
+          <td><div class="article-title"><%= link_to article.title, article_path(article) %></div> (Unpublished)<br><br>...<%= article.longest_sentence %>...</td>
         </tr>
       <% end %>
     <% end %>

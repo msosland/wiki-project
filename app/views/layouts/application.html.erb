@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wikijams</title>
+  <title>Wikijamz!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -27,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">WikiJamz!</a>
+      <a class="navbar-brand" href="/"><i class="fa fa-wikipedia-w"></i>ikiJamz!</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,8 +55,8 @@
 </nav>
 
 
-  <ul class="col-sm-3 col-md-1 sidebar-nav">
-    <li>Categories</li>
+  <ul class="col-sm-3 col-md-2 sidebar-nav">
+    <li id="categories">Categories</li>
     <% categories.each do |category| %>
       <li>
         <%= link_to category.title, category_path(category), id: "#{category.title}"  %>
@@ -64,7 +64,7 @@
     <% end %>
   </ul>
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <%= yield %>
 </div>
 
