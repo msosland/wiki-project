@@ -30,17 +30,7 @@ body {
   /*background-color: black;*/
 }
 
-/*
-.sidebar {
-  float: left;
-  width: 10em;
-  box-sizing: border-box;
-  position: fixed;
-  border: 1px red solid;
-  height: 100%;
-  left: 0;
-}
-*/
+
 
 
 
@@ -4081,7 +4071,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
